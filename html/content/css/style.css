@@ -1,0 +1,106 @@
+body {
+       margin: 0;
+       padding: 0;
+       background: black;
+	   padding-right: 10px;
+       font: 10px/13px 'Lucida Sans',sans-serif;
+    }
+    .wrap {
+       overflow: hidden;
+       margin: 20px;
+    }
+    .box {
+       float: left;
+       position: relative;
+       width: 20%;
+       padding-bottom: 20%;
+	   
+    }
+    .boxInner {
+       position: absolute;
+       left: 10px;
+       top: 10px;
+       overflow: hidden;
+	   border-radius: 6px;
+    }
+    .boxInner img {
+       width: 100%;
+    }
+    .boxInner .titleBox {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       margin-bottom: -80px;
+       background: #000;
+       background: rgba(0, 0, 0, 0.6);
+       color: #FFF;
+       padding: 10px;
+       padding-right: 55px;
+       text-align: left;
+       -webkit-transition: all 0.3s ease-out;
+       -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+       transition: all 0.3s ease-out;
+    }
+    .downloadBox {
+       position: absolute;
+       bottom: 5px;
+       right: 5px;
+	   width: 30px;
+       color: #FFF;
+	   padding: 4px;
+       text-align: center;
+	   vertical-align: middle;
+	   border-radius: 5px;
+	   border: 1px solid gray;
+       -webkit-transition: all 0.3s ease-out;
+       -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+       transition: all 0.3s ease-out;
+	   -webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari*/
+		-khtml-user-select: none; /* Konqueror */
+		-moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+    }
+	.downloadBox:hover {
+		color: black;
+		cursor: default;
+		border: 1px solid black;
+		background: rgba(255, 255, 255, 0.2);
+		
+    }
+    body.no-touch .boxInner:hover .titleBox, body.touch .boxInner.touchFocus .titleBox {
+       margin-bottom: 0;
+    }
+    @media only screen and (max-width : 128px) {
+       /* Smartphone view: 1 tile */
+       .box {
+          width: 100%;
+          padding-bottom: 100%;
+       }
+    }
+    @media only screen and (max-width : 256px) and (min-width : 129px) {
+       /* Tablet view: 2 tiles */
+       .box {
+          width: 50%;
+          padding-bottom: 50%;
+       }
+    }
+    @media only screen and (max-width : 384px) and (min-width : 257px) {
+       /* Small desktop / ipad view: 3 tiles */
+       .box {
+          width: 33.3%;
+          padding-bottom: 33.3%;
+       }
+    }
+    @media only screen and (max-width : 512px) and (min-width : 385px) {
+       /* Medium desktop: 4 tiles */
+       .box {
+          width: 25%;
+          padding-bottom: 25%;
+       }
+    }

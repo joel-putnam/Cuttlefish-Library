@@ -1,0 +1,82 @@
+<html>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+window.onload = function () {
+    var jsonString = '{"record":[{"sn":"Demo Sheet 1","vn":"Demo View 11"},{"sn":"Demo Sheet 1","vn":"Demo View 12"},{"sn":"Demo Sheet 2","vn":"Demo View 21"},{"sn":"Demo Sheet 1","vn":"Demo View 13"}		],"recordcount":"4"}';
+    var jsonObject = JSON.parse(jsonString);
+    var newArrays = {};
+    var records = jsonObject.record;
+
+    for (var i = 0; i < records.length; i++) {
+        if (!newArrays[records[i].sn]) {
+            newArrays[records[i].sn] = [];
+        }
+        newArrays[records[i].sn].push(records[i].vn);
+    }
+
+    console.log(newArrays);
+
+    // Grab the container DOM element
+    var tree = document.getElementById('navmenu');
+    
+    (function recurse(domElement, treeNode) {
+        var ul = document.createElement('ul'),
+            li,
+            n;
+        
+        // Make a <ul> to hold the current tree node's children (if any)
+        domElement.appendChild(ul)
+        ul.class = "nav";
+		ul.role = "menu";
+        // Loop over current tree node's children
+        for (n in treeNode) {
+            // Create an <li> element
+            li = document.createElement('li');
+            // Add the "key" text (eg. "Demo Sheet 1")
+            li.innerText = n;
+            // If the current tree node child is an array...
+            if (treeNode[n] instanceof Array) {
+                // Recursively get this node's children, etc
+                recurse(li, treeNode[n]);
+            }
+            else {
+                // Otherwise just print the "value" text (eg. "Demo View 11")
+                li.innerHTML = treeNode[n];
+            }
+            // Remember to add the <li> to the <ul>!
+            ul.appendChild(li);
+        }
+    }(tree, newArrays));
+};
+	
+</script>
+
+</head>
+<body>
+<nav id="navmenu">
+    <ul class="nav">
+	    <li><a href="#">Link 1</a></li>
+		<li><a href="#" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">Link 2 (toggle)</a>
+			<ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
+				<li><a href="#">Link 2.1</a></li>
+				<li><a href="#">Link 2.2</a></li>
+				<li><a href="#">Link 2.3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Link 3</a></li>
+		<li><a href="#">Link 4</a></li>
+	</ul>
+</nav>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" media="all" href="css/style.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    // Get the URI path and strip the leading slash
+    var path = $(location).attr('pathname').replace(/\//, ""); 
+    // Get and append the querystring
+    path += $(location).attr('search');
+    // Hide everything
+    $('#leftmenu ul').hide();        
+    // Go up 2 levels (a > li > ul) and open. Hide all others.
+    $('#leftmenu a[href="' + path + '"]').addClass('current').parent().parent().slideDown();
+
+    $('#leftmenu h3').click( 
+        function() {
+            var $this = $(this);
+            $this.next('ul').siblings('ul').slideUp();
+            $this.next('ul').find('ul').slideUp();
+            $this.next().slideToggle(300); 
+    });
+});
+
+function LoadContent(page){
+
+	document.getElementById('content').src  = 'content/' + page;
+}
+
+</script>
+</head>
+<body>
+<div id="leftmenu" style="width:300px;">
+<h3>Textures</h3>
+<ul>
+    <li onclick="LoadContent('pattern.htm')">Patterns</li>
+    <li onclick="LoadContent('noise.htm')">Noise</li>
+</ul>
+
+<h3>Second Menu</h3>
+<ul>
+    <li>Underscores</li>
+    <li>Hyphens</li>
+</ul>
+</div>
+<iframe href="" id="content" class="contentframe"><iframe>
+</body>
+</html>

@@ -1,0 +1,86 @@
+body{
+	margin: 0;
+	background: #212121;
+}
+#leftmenu h3 {
+    margin:0;
+	color:white;
+	font-family: Arial;
+	font-size: 12px;
+    border-bottom:1px solid darkgray;
+	cursor: default; 
+    background-color:#212121;
+	text-align:left;
+	vertical-align: middle;
+	width:100%;
+	padding:10px;
+}
+#leftmenu h3:hover {
+    background-color:darkgray;
+	cursor: default; 
+	color: black;
+}
+#leftmenu > ul {
+    margin:0;
+    padding:0;
+	cursor: default; 
+}
+#leftmenu > ul li {
+	font-family: Arial;
+	color: white;
+	background-color:#424242;
+	font-size: 12px;
+    padding-left:10px;
+    list-style-type:none;
+	vertical-align: center;
+	width:100%;
+	padding:10px;
+    border-bottom:1px solid darkgray;
+	cursor: default; 
+}
+#leftmenu > ul li:hover {
+	font-family: Arial;
+	font-size: 12px;
+	color: black;
+    padding-left:10px;
+    list-style-type:none;
+	vertical-align: center;
+	width:100%;
+	padding:10px;
+    background-color:Gainsboro;
+    border-bottom:1px solid darkgray;
+	cursor: default; 
+}
+#leftmenu > ul li a {
+	font-family: Arial;
+	font-size: 12px;
+    color:#666666;
+    text-decoration:none;
+	cursor: default; 
+}
+#leftmenu > ul li a:hover {
+	font-family: Arial;
+	font-size: 12px;
+    text-decoration:none;
+	cursor: default; 
+}
+#leftmenu .current {
+	font-family: Arial;
+	font-size: 12px;
+    color:#006699;
+    text-decoration:none;
+	cursor: default;
+	padding-left: 10px;
+}
+iframe {
+    width: -webkit-calc(100% - 322px);
+    width:    -moz-calc(100% - 322px);
+    width:         calc(100% - 322px);
+	position: absolute;
+	top: 0px;
+	left:320px;
+	height: 100%;
+	border: 0;
+	border-left:1px solid darkgray;
+	background: black;
+}​
